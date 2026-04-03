@@ -1,285 +1,155 @@
-:root {
-  --navy: #0D1B2A;
-  --navy-light: #1B2E45;
-  --navy-dark: #070F18;
-  --gold: #C9A84C;
-  --ivory: #F5F0E8;
-  --ivory-dark: #EAE3D6;
-  --ivory-deeper: #D9CFBE;
-  --white: #FFFFFF;
-  --black: #0A0A0A;
-  --text-muted: #6B7280;
-}
-
-/* ── Reset ── */
+/* Basic reset to remove default browser spacing */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* ── Base ── */
+/* background and font */
 body {
-  font-family: 'Cormorant Garamond', serif;
-  background: var(--ivory);
-  color: var(--black);
-  min-height: 100vh;
-  background-image:
-    radial-gradient(ellipse at 10% 20%, rgba(13,27,42,0.06) 0%, transparent 50%),
-    radial-gradient(ellipse at 90% 80%, rgba(201,168,76,0.04) 0%, transparent 50%);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f0f2f5; 
+    color: #1a202c;
+    padding: 40px 20px;
+    line-height: 1.5;
 }
 
-/* Subtle grain texture overlay */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.4;
-}
-
-/* ── Layout ── */
+/* The white box that holds all the content */
 .container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 24px 80px;
-  position: relative;
-  z-index: 1;
+    max-width: 750px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 }
 
-/* ── Header ── */
+/* Header section with a bottom border */
 header {
-  text-align: center;
-  padding: 56px 0 40px;
-}
-
-/* Small pill tag above the heading */
-.header-tag {
-  display: inline-block;
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold);
-  background: rgba(201,168,76,0.08);
-  border: 1px solid rgba(201,168,76,0.3);
-  padding: 6px 16px;
-  border-radius: 20px;
-  margin-bottom: 20px;
+    text-align: left;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #edf2f7;
+    padding-bottom: 20px;
 }
 
 h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(36px, 6vw, 64px);
-  font-weight: 700;
-  color: var(--navy);
-  line-height: 1.1;
-  letter-spacing: -1px;
+    font-size: 32px;
+    color: #2d3748;
+    margin-bottom: 8px;
 }
 
-/* Gold italic accent in heading */
-h1 em {
-  color: var(--gold);
-  font-style: italic;
+/* Flexbox layout for the search bar and buttons */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+    align-items: center;
 }
 
-.subtitle {
-  margin-top: 14px;
-  font-size: 17px;
-  color: var(--text-muted);
-  font-weight: 400;
-  letter-spacing: 0.3px;
-  font-family: 'Cormorant Garamond', serif;
-}
-
-/* ── Divider ── */
-.divider {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin: 36px 0;
-}
-
-/* Fading lines on either side of the diamond icon */
-.divider::before,
-.divider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--ivory-deeper));
-}
-
-.divider::after {
-  background: linear-gradient(90deg, var(--ivory-deeper), transparent);
-}
-
-.divider-icon {
-  font-size: 18px;
-  color: var(--gold);
-  opacity: 0.7;
-}
-
-/* ── Q&A List ── */
-.qa-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-/* ── Q&A Card ── */
-.qa-card {
-  background: var(--white);
-  border-radius: 16px;
-  border: 1px solid var(--ivory-dark);
-  overflow: hidden;
-  box-shadow:
-    0 2px 8px rgba(13,27,42,0.06),
-    0 8px 32px rgba(13,27,42,0.06);
-  transition: box-shadow 0.2s ease;
-}
-
-.qa-card:hover {
-  box-shadow:
-    0 4px 16px rgba(13,27,42,0.1),
-    0 12px 40px rgba(13,27,42,0.08);
-}
-
-/* Navy to gold gradient top border on each card */
-.qa-card::before {
-  content: '';
-  display: block;
-  height: 3px;
-  background: linear-gradient(90deg, var(--navy-dark), var(--navy-light), var(--gold));
-}
-
-/* ── Question Row ── */
-.qa-question {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 22px 28px;
-  cursor: pointer;
-  gap: 16px;
-  transition: background 0.2s ease;
-}
-
-.qa-question:hover {
-  background: rgba(13,27,42,0.02);
-}
-
-.question-text {
-  font-family: 'Playfair Display', serif;
-  font-size: 17px;
-  font-weight: 600;
-  color: var(--navy);
-  line-height: 1.4;
-}
-
-/* + icon — rotates to × when card is open */
-.qa-cue {
-  font-size: 22px;
-  color: var(--gold);
-  font-weight: 300;
-  flex-shrink: 0;
-  transition: transform 0.3s ease;
-  line-height: 1;
-}
-
-.qa-card.open .qa-cue {
-  transform: rotate(45deg);
-}
-
-/* ── Answer ── */
-/* Hidden by default — expands smoothly when .open class is added */
-.qa-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.3s ease;
-  padding: 0 28px;
-}
-
-.qa-card.open .qa-answer {
-  max-height: 600px;
-  padding: 0 28px 24px;
-}
-
-.answer-text {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
-  line-height: 1.8;
-  color: var(--text-muted);
-  border-top: 1px solid var(--ivory-dark);
-  padding-top: 18px;
-}
-
-.answer-text ul {
-  padding-left: 20px;
-  margin-top: 8px;
-}
-
-.answer-text li {
-  font-family: 'DM Sans', sans-serif;
-  margin-bottom: 8px;
-  line-height: 1.7;
-}
-
-/* Bold labels inside answers styled in navy */
-.answer-text strong {
-  color: var(--navy);
-  font-weight: 600;
-}
-
-/* ── Footer ── */
-footer {
-  text-align: center;
-  margin-top: 60px;
-  padding-top: 32px;
-  border-top: 1px solid var(--ivory-dark);
-}
-
-.footer-brand {
-  font-family: 'Playfair Display', serif;
-  font-size: 18px;
-  color: var(--navy);
-  font-style: italic;
-}
-
-.footer-sub {
-  font-size: 13px;
-  color: var(--text-muted);
-  margin-top: 6px;
-  letter-spacing: 0.5px;
-  font-family: 'DM Mono', monospace;
-}
-
-/* ── Animations ── */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* Each card fades in with a staggered delay set by JS */
-.qa-card {
-  animation: fadeIn 0.4s ease both;
-}
-
-/* ── Responsive ── */
-@media (max-width: 600px) {
-  .qa-question {
-    padding: 18px 20px;
-  }
-
-  .qa-answer {
-    padding: 0 20px;
-  }
-
-  .qa-card.open .qa-answer {
-    padding: 0 20px 20px;
-  }
-
-  .question-text {
+/* search input styling */
+#searchBar {
+    flex: 1 1 250px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
     font-size: 15px;
-  }
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#searchBar:focus {
+    border-color: #4a5568; 
+}
+
+/* Expand/Collapse buttons */
+.controls button {
+    flex: 0 0 auto;
+    padding: 12px 18px;
+    background-color: #4a5568; 
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    white-space: nowrap;
+    transition: background 0.3s ease, transform 0.1s ease;
+}
+
+.controls button:hover {
+    background-color: #2d3748;
+}
+
+/* Change in button when clicked */
+.controls button:active {
+    transform: scale(0.96);
+}
+
+/* Q&A card box */
+.qa-item {
+    margin-bottom: 12px;
+    border: 1px solid #edf2f7;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Clickable question header */
+.qa-header {
+    background-color: #f7fafc;
+    padding: 18px 24px;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.qa-header:hover {
+    background-color: #edf2f7;
+}
+
+/* The +/- symbol styling */
+.symbol {
+    color: #4a5568;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* The answer box (Hidden by default) */
+.qa-answer {
+    display: none; 
+    padding: 20px 24px;
+    background-color: #fff;
+    border-top: 1px solid #edf2f7;
+    color: #4a5568;
+    font-size: 15px;
+}
+
+/* This class is added by JS to make the answer visible */
+.show-answer {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Fade in effect for the answer */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #edf2f7;
+    color: #a0aec0;
+    font-size: 13px;
+}
+
+/* Responsiveness */
+@media (max-width: 550px) {
+    .controls { justify-content: center; }
+    #searchBar { flex: 1 1 100%; }
+    .controls button { flex: 1; }
 }

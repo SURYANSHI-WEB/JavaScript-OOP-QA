@@ -1,47 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>JavaScript Q&A</title>
-
-  <!-- Google Fonts: Playfair Display (headings), Cormorant Garamond (body), DM Sans (answers), DM Mono (tag/footer) -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-
-  <!-- External stylesheet -->
-  <link rel="stylesheet" href="style.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Q&As</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-  <!-- Main wrapper — centers content and applies max-width -->
   <div class="container">
-
-    <!-- Page header with title and subtitle -->
     <header>
-      <div class="header-tag">✦ JavaScript Foundations</div>
-      <h1>Study. Revise. <em>Master.</em></h1>
-      <p class="subtitle">Essential questions covering the core concepts of modern JavaScript.</p>
+      <h1>JavaScript Q&As</h1>
+      <p>Click a question to see the answer!</p>
     </header>
 
-    <!-- Decorative divider -->
-    <div class="divider"><span class="divider-icon">◆</span></div>
-
-    <!-- Q&A section — cards are injected here dynamically by script.js -->
-    <main>
-      <div class="qa-list" id="qa-list"></div>
-    </main>
-
-    <!-- Page footer -->
+    <div class="controls">
+      <input type="text" id="searchBar" placeholder="Search questions...">
+      <button id="openAll">Expand All</button>
+      <button id="closeAll">Collapse All</button>
+    </div>
+    
+    <main id="qa-container"></main>
+    
     <footer>
-      <div class="footer-brand">JavaScript Q&A</div>
-      <div class="footer-sub">Built by Suryanshi Singh</div>
+      <p>Coded by: Suryanshi Singh</p>
     </footer>
-
   </div>
 
-  <!-- JavaScript — loaded at end of body so DOM is ready -->
   <script src="script.js"></script>
-
 </body>
 </html>

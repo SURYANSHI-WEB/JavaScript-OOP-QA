@@ -1,3 +1,7 @@
-*.exe
+# Ignore system files
 .DS_Store
 Thumbs.db
+
+# Ignore any local test files
+node_modules/
+*.log

@@ -1,34 +1,25 @@
-# JavaScript Q&A — OOP Assignment
+# JavaScript Q&A - OOP Assignment
+**By: Suryanshi Singh**
 
-An interactive Q&A study tool built using Object-Oriented Programming in JavaScript. Covers core web development concepts from HTML and CSS to async JavaScript and OOP.
-
-## Live Demo
-[View Live](https://suryanshi-web.github.io/JavaScript-OOP-QA/)
+This is an interactive Q&A webpage. It uses Object-Oriented Programming (OOP) to show and hide answers to common web development questions.
 
 ## Features
-- 22 Q&A cards covering web development fundamentals to advanced JS
-- Accordion behavior — click to expand, auto-closes previous card
-- Built entirely with OOP — each card is an instance of the `QAItem` class
-- Smooth CSS transitions and staggered fade-in animations
-- Fully responsive
+- **7 Question Cards:** Covers HTML, CSS, and JS basics.
+- **Interactive Toggling:** Click a question to see the answer. 
+- **OOP Structure:** Everything is built using a JavaScript Class.
+- **Search Bar:** A bonus feature to find specific questions quickly.
+- **Bulk Actions:** "Expand All" and "Collapse All" buttons for better navigation.
 
-## OOP Concepts Used
-- **Class** — `QAItem` class as a blueprint for each Q&A card
-- **Constructor** — initializes `question`, `answer`, and `isOpen` state per instance
-- **Methods** — `toggle()` manages state, `render()` builds and returns the DOM element
-- **Encapsulation** — each card manages its own open/closed state internally
+## How I Used OOP
+For this project, I created a class called `QAItem`. 
+- **Constructor:** I used this to store the question and answer text for each object.
+- **Methods:** I wrote a `makeHtml` method to create the HTML elements and a `clickAction` method to handle the logic.
+- **Array:** I stored all my question objects in an array and used a loop to display them on the screen.
 
-## Tech Stack
-HTML · CSS · Vanilla JavaScript (ES6)
+## Project Files
+- `index.html`: The main structure of the page.
+- `style.css`: All the styling, including the layouts and animations.
+- `script.js`: The OOP logic and the data for the questions.
 
-## Project Structure
-```
-├── index.html
-├── style.css
-├── script.js
-├── .gitignore
-└── README.md
-```
-
-## Branch Workflow
-`dev` → `stage` → `main`
+## How to Run
+Just open the `index.html` file in any modern web browser.
